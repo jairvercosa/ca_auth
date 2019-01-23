@@ -7,6 +7,7 @@ from usecases import CreateCredential
 from usecases.exceptions import CredentialAlreadyExists
 
 
+# Mocks
 class EmptyRepository(CredentialRepositoryInterface):
 
     def find(self):
@@ -40,6 +41,7 @@ def get_instance():
     )
 
 
+# Test cases
 class TestInit:
 
     def test_initialize(self, get_instance):
