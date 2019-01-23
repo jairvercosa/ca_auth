@@ -41,7 +41,7 @@ class Credential(CredentialInterface):
         if value is None:
             raise ValueError('Password cannot be null.')
 
-        self.__password = Password(value)
+        self.__password.value = value
 
     def verify(self, password):
         return self.__password == password
