@@ -1,0 +1,12 @@
+argon2==0.1.10
+argon2-cffi==19.1.0
+atomicwrites==1.2.1
+attrs==18.2.0
+cffi==1.11.5
+more-itertools==5.0.0
+passlib==1.7.1
+pluggy==0.8.1
+py==1.7.0
+pycparser==2.19
+pytest==4.1.1
+six==1.12.0
