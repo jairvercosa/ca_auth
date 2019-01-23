@@ -1,9 +1,10 @@
 from uuid import uuid4
 
+from .interfaces import CredentialInterface
 from .values import Password
 
 
-class Credential:
+class Credential(CredentialInterface):
 
     def __init__(self, username, password=None, active=True, uuid=None):
         self.__uuid = uuid or uuid4()
