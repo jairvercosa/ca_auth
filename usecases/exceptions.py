@@ -1,0 +1,3 @@
+
+class CredentialAlreadyExists(Exception):
+    pass
