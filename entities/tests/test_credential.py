@@ -2,7 +2,7 @@ import pytest
 
 from uuid import uuid4, UUID
 
-from entities.credential import Credential
+from entities import Credential
 from entities.values import Password
 
 
