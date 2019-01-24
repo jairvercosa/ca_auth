@@ -52,10 +52,6 @@ class TestInit:
         instance = get_instance
         assert isinstance(instance.repository, CredentialRepositoryInterface)
 
-    def test_when_username_is_not_provieded_raise_exception(self):
-        with pytest.raises(ValueError):
-            CreateCredential(Repository(), '', 'Password')
-
     def test_when_password_is_not_provided_raise_exception(self):
         with pytest.raises(ValueError):
             CreateCredential(Repository(), 'john.smith', '')
