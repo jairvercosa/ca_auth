@@ -5,7 +5,7 @@ from auth.usecases.exceptions import CredentialAlreadyExists
 
 class AuthService:
 
-    def create_credential(self, username, password):
+    def create_credential(self, username: str, password: str) -> (list, dict):
         errors = list()
         credential_data = dict()
         repository = DjangoCredentialRepository()
@@ -13,12 +13,12 @@ class AuthService:
         try:
             usecase = CreateCredential(repository, username, password)
             new_credential = usecase.execute()
-        except ValueError as ex:
-            errors.append(str(ex))
-        except CredentialAlreadyExists as ex:
+        except (CredentialAlreadyExists, ValueError) as ex:
             errors.append(str(ex))
         else:
-            credential_data['username'] = new_credential.username
-            credential_data['uuid'] = new_credential.uuid
+            credential_data.update({
+                'username': new_credential.username,
+                'uuid': new_credential.uuid,
+            })
 
         return errors, credential_data

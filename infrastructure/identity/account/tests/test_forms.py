@@ -16,7 +16,7 @@ class TestRequired:
 
     def test_when_password_is_empty_returns_error_with_password(self):
         data = {
-            'username': 'johnsmith',
+            'username': 'johnsmith@example.com',
             'password': None,
             'confirm_password': 'P@ssword99',
         }
@@ -27,7 +27,7 @@ class TestRequired:
 
     def test_when_confirm_password_is_empty_returns_error_with_confirm_password(self):
         data = {
-            'username': 'johnsmith',
+            'username': 'johnsmith@example.com',
             'password': 'P@ssword99',
             'confirm_password': None,
         }
@@ -38,7 +38,7 @@ class TestRequired:
 
     def test_when_confirm_password_is_different_from_password_returns_error_with_confirm_password(self):
         data = {
-            'username': 'johnsmith',
+            'username': 'johnsmith@example.com',
             'password': 'P@ssword99',
             'confirm_password': 'P@ssword91',
         }
@@ -50,7 +50,7 @@ class TestRequired:
     def test_when_all_fields_are_filled_up_and_password_is_equal_to_confirm_password_the_form_is_valid(self):
         password = 'P@ssword99'
         data = {
-            'username': 'johnsmith',
+            'username': 'johnsmith@example.com',
             'password': password,
             'confirm_password': password,
         }
