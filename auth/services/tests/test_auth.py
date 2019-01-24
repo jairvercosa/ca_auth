@@ -2,9 +2,9 @@ import pytest
 
 from uuid import UUID
 
-from entities import Credential
-from services import AuthService
-from services.auth import DjangoCredentialRepository
+from auth.entities import Credential
+from auth.services import AuthService
+from auth.services.auth import DjangoCredentialRepository
 
 
 @pytest.fixture
@@ -15,6 +15,12 @@ def create_credential_response(mocker):
         DjangoCredentialRepository,
         'create',
         return_value=credential
+    )
+
+    mocker.patch.object(
+        DjangoCredentialRepository,
+        'find_by',
+        return_value=None
     )
 
     instance = AuthService()

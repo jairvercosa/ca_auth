@@ -1,6 +1,6 @@
-from usecases import CreateCredential
-from usecases.exceptions import CredentialAlreadyExists
-from adapters import DjangoCredentialRepository
+from auth.adapters import DjangoCredentialRepository
+from auth.usecases import CreateCredential
+from auth.usecases.exceptions import CredentialAlreadyExists
 
 
 class AuthService:

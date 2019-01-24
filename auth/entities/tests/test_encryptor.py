@@ -1,6 +1,6 @@
 import pytest
 
-from entities import Encryptor
+from auth.entities import Encryptor
 
 
 class TestEncrypt:

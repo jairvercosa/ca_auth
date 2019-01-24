@@ -1,4 +1,4 @@
-from entities import Credential
+from auth.entities import Credential
 
 from .interfaces import UseCaseInterface
 from .exceptions import CredentialAlreadyExists

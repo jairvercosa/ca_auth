@@ -1,6 +1,6 @@
 import pytest
 
-from entities.values.password import Password
+from auth.entities.values.password import Password
 
 
 class TestInit:

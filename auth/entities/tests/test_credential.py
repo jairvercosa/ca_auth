@@ -2,8 +2,8 @@ import pytest
 
 from uuid import uuid4, UUID
 
-from entities import Credential
-from entities.values import Password
+from auth.entities import Credential
+from auth.entities.values import Password
 
 
 @pytest.fixture

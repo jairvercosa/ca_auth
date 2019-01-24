@@ -1,10 +1,10 @@
 import pytest
 
-from adapters import CredentialRepositoryInterface
-from entities import Credential
+from auth.adapters import CredentialRepositoryInterface
+from auth.entities import Credential
 
-from usecases import CreateCredential
-from usecases.exceptions import CredentialAlreadyExists
+from auth.usecases import CreateCredential
+from auth.usecases.exceptions import CredentialAlreadyExists
 
 
 # Mocks
