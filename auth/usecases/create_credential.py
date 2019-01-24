@@ -9,7 +9,7 @@ class CreateCredential(UseCaseInterface):
     def __init__(self, repository, username, password):
         self.__repository = repository
 
-        if not (username and password):
+        if not password:
             raise ValueError('Username or password not provided.')
 
         self.__username = username
