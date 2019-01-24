@@ -63,7 +63,7 @@ class TestFindBy:
 class TestCreate:
 
     def test_persist_user_account(self, mocker):
-        create_user = mocker.patch.object(UserAccount.objects, 'create_user')
+        create_user = mocker.patch.object(UserAccount.objects, 'save')
         instance = DjangoCredentialRepository()
         instance.create(Credential(
             'john.smith4',

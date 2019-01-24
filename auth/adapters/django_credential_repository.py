@@ -17,10 +17,13 @@ class DjangoCredentialRepository(CredentialRepositoryInterface):
         return self._factory_credential(user)
 
     def create(self, credential):
-        user = UserAccount.objects.create_user(
-            credential.username,
-            credential.password
+        user = UserAccount(
+            username=credential.username,
+            email=credential.username,
+            password=credential.password.value,
+            uuid=credential.uuid
         )
+        user.save()
         return self._factory_credential(user)
 
     def update_status(self, credential):
@@ -32,7 +35,7 @@ class DjangoCredentialRepository(CredentialRepositoryInterface):
 
     def update_password(self, credential):
         user = self._find_user_account({'uuid': credential.uuid})
-        user.password = credential.password
+        user.password = credential.password.value
         user.save()
 
         return self._factory_credential(user)

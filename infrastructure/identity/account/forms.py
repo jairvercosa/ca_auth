@@ -3,7 +3,7 @@ from django import forms
 
 class RegisterCredentialForm(forms.Form):
 
-    username = forms.CharField(required=True)
+    username = forms.EmailField(required=True)
     password = forms.CharField(required=True, widget=forms.PasswordInput())
     confirm_password = forms.CharField(
         required=True,
