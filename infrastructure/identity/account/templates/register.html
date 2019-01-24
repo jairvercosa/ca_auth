@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div>
+        <h2>Register</h2>
+        <div>
+            <form method="post" action="{{ request.get_full_path }}" >
+                {% csrf_token %}
+                <p>{{ form.error }}</p>
+                <div>
+                    <div>
+                        <label for="username">{{ form.username.label }}</label>
+                    </div>
+                    <div>
+                        {{ form.username }}
+                    </div>
+                    <p>{{ form.username.errors }}</p>
+                </div>
+                <div>
+                    <div>
+                        <label for="password">{{ form.password.label }}</label>
+                    </div>
+                    <div>
+                        {{ form.password }}
+                    </div>
+                    <p>{{ form.password.errors }}</p>
+                </div>
+                <div>
+                    <div>
+                        <label for="confirm_password">{{ form.confirm_password.label }}</label>
+                    </div>
+                    <div>
+                        {{ form.confirm_password }}
+                    </div>
+                    <p>{{ form.confirm_password.errors }}</p>
+                </div>
+                <div>
+                    <button type="submit">Register</button>
+                    <a href="#">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
