@@ -11,6 +11,7 @@ from identity.account.views import (
 class TestFormValid:
 
     def test_execute_create_credential_service_method(self, mocker):
+        mocker.patch('identity.account.views.HttpResponse')
         mocker.patch.object(
             AuthService,
             'create_credential',
@@ -19,6 +20,8 @@ class TestFormValid:
         mocker.patch.object(FormView, 'form_valid', return_value=None)
 
         view = CreateCredentialView()
+        view.request = mocker.Mock()
+
         form_class = view.get_form_class()
         form = form_class(data={
             'username': 'johnsmith',
@@ -30,9 +33,20 @@ class TestFormValid:
         view.form_valid(form)
         assert AuthService.create_credential.called is True
 
-    def test_when_form_is_valid_and_auth_service_has_error_return_error(self, mocker):
-        mocker.patch.object(AuthService, 'create_credential', return_value=(['Error'], {}))
-        mocker.patch.object(CreateCredentialView, 'form_invalid', return_value=None)
+    def test_when_form_is_valid_and_auth_service_has_error_return_error(
+        self,
+        mocker
+    ):
+        mocker.patch.object(
+            AuthService,
+            'create_credential',
+            return_value=(['Error'], {})
+        )
+        mocker.patch.object(
+            CreateCredentialView,
+            'form_invalid',
+            return_value=None
+        )
 
         view = CreateCredentialView()
         form_class = view.get_form_class()
