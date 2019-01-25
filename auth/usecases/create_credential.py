@@ -1,7 +1,6 @@
 from auth.entities import Credential
-from auth.adapters import CredentialRepositoryInterface
 
-from .interfaces import UseCaseInterface
+from .interfaces import UseCaseInterface, CredentialRepositoryInterface
 from .exceptions import CredentialAlreadyExists
 
 

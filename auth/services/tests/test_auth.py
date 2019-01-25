@@ -4,7 +4,7 @@ from uuid import UUID
 
 from auth.entities import Credential
 from auth.services import AuthService
-from auth.services.auth import DjangoCredentialRepository
+from auth.adapters import DjangoCredentialRepository
 
 
 @pytest.fixture

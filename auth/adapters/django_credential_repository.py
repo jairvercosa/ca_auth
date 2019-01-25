@@ -2,8 +2,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from identity.account.models import UserAccount
 from auth.entities import Credential, CredentialInterface
-
-from .interfaces import CredentialRepositoryInterface
+from auth.usecases import CredentialRepositoryInterface
 
 
 class DjangoCredentialRepository(CredentialRepositoryInterface):
